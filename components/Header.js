@@ -46,14 +46,14 @@ function Header() {
           </div>
           <div className="relative flex items-center text-white link">
             <ShoppingCartIcon className=" h-12 w-12"/>
-            <span className="text-xs font-extrabold absolute top-0 left-8 p-1 rounded-full bg-yellow-500">10</span>
+            <span className="text-xs font-extrabold absolute top-0 left-6 p-1 rounded-full text-black bg-yellow-500">10</span>
             <p className="hidden lg:block font-bold text-xl link">Basket</p>
           </div>
         </div>
       </div>
 
       {/* bottom nav */}
-      <div className="px-3 py-2 flex items-center">
+      <div className="px-3 py-2 flex items-center bg-amazon_blue-light">
         <div className="flex items-center text-white space-x-2 mr-2 text-sm">
           <MenuIcon className="text-white h-6"/>
           <p className="link">All</p>

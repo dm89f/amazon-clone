@@ -5,7 +5,7 @@ import {getCartItemsLength, getCartItemsPrice ,getCartItems} from '../features/c
 import CartItem from '@/components/CartItem'
 
 
-export default function checkout(){
+export default function Checkout(){
 
   const cartItems = useSelector(getCartItems);
 

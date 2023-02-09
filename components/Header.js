@@ -8,11 +8,15 @@ import { useRouter } from "next/router";
 import {useSelector} from 'react-redux'
 import {getCartItemsLength} from '../features/cart'
 
+import { useSession, signIn, signOut } from "next-auth/react"
+
+
 
 function Header() {
 
   const totCartItems = useSelector(getCartItemsLength);
   const router = useRouter();
+  const { data:session } = useSession();
 
   function gotoCheckout(e){
     e.preventDefault();
@@ -27,6 +31,16 @@ function Header() {
   function gotoHome(e){
     e.preventDefault();
     router.push('/')
+  }
+
+  function handlesignin(e){
+    e.preventDefault();
+    if(session){
+      signOut();
+    }else{
+      signIn();
+    }
+
   }
 
 
@@ -60,8 +74,13 @@ function Header() {
 
         {/* right */}
         <div className="flex items-center space-x-4 mx-4 ml-auto link">
-          <div className="hover:underline text-white"> 
-            <p className="text-sm md:text-lg  whitespace-nowrap">Hello Sign in</p>
+          <div onClick={handlesignin} className="hover:underline text-white"> 
+            <p className="text-sm md:text-lg  whitespace-nowrap">
+              {
+                session ? `${session.user.name}`:"Hello Sign in"
+              }
+
+            </p>
             <p className="text-sm md:text-lg  font-bold whitespace-nowrap">Account & Lists</p>
           </div>
           <div onClick={gotoRetOrders} className="hover:underline text-white link"> 

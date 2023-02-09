@@ -1,5 +1,8 @@
+import Product from "./Product";
+// import {} from '../features/cart';
+import { useDispatch, useSelector } from "react-redux";
 
-import Product from "./Product"
+
 
 function ProductFeed({products}) {
 
@@ -12,6 +15,7 @@ function ProductFeed({products}) {
           return(
             <Product 
               key={product.id}
+              id={product.id}
               title={product.title}
               category={product.category}
               description={product.description}

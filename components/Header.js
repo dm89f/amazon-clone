@@ -4,14 +4,38 @@ import {
   SearchIcon,
   ShoppingCartIcon,
 } from '@heroicons/react/outline';
+import { useRouter } from "next/router";
+import {useSelector} from 'react-redux'
+import {getCartItemsLength} from '../features/cart'
+
 
 function Header() {
+
+  const totCartItems = useSelector(getCartItemsLength);
+  const router = useRouter();
+
+  function gotoCheckout(e){
+    e.preventDefault();
+    router.push('/checkout')
+  }
+
+  function gotoRetOrders(e){
+    e.preventDefault();
+    router.push('/orders')
+  }
+
+  function gotoHome(e){
+    e.preventDefault();
+    router.push('/')
+  }
+
+
   return (
     <header className="bg-amazon_blue ">
 
       <div className="flex items-center py-2">       
         <Image
-          onClick={()=>{router.push('/')}}
+          onClick={gotoHome}
           alt='logo'
           src='/images/amazon_png.png'
           width={150}
@@ -40,13 +64,13 @@ function Header() {
             <p className="text-sm md:text-lg  whitespace-nowrap">Hello Sign in</p>
             <p className="text-sm md:text-lg  font-bold whitespace-nowrap">Account & Lists</p>
           </div>
-          <div className="hover:underline text-white link"> 
+          <div onClick={gotoRetOrders} className="hover:underline text-white link"> 
             <p className="text-sm md:text-lg  whitespace-nowrap ">Return </p>
             <p className="text-sm md:text-lg  whitespace-nowrap font-bold">& Orders</p>
           </div>
-          <div className="relative flex items-center text-white link">
+          <div onClick={gotoCheckout} className="relative flex items-center text-white link" >
             <ShoppingCartIcon className=" h-12 w-12"/>
-            <span className="text-xs font-extrabold absolute top-0 left-6 p-1 rounded-full text-black bg-yellow-500">10</span>
+            <span className="text-sm font-extrabold absolute top-0 left-7 px-1 rounded-full text-black bg-yellow-500">{totCartItems}</span>
             <p className="hidden lg:block font-bold text-xl link">Basket</p>
           </div>
         </div>

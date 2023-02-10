@@ -4,12 +4,12 @@ import Header from '../components/Header'
 import {useRouter} from 'next/router'
 
 
-function success() {
+function Success() {
 
   const router = useRouter();
 
   return (
-    <div className='bg-gray-100 h-screen  '>
+    <div className='bg-gray-100 h-screen'>
       <Header/>
       <main className='max-w-screen-lg mx-auto'>
         <div className='flex flex-col  p-10 bg-white'>
@@ -18,7 +18,7 @@ function success() {
             <h1 className='text-3xl '>Thank you, Your Order has been Confirmed</h1>
           </div>
           <p className='mb-5'>
-            Thank you for shopping with us. We'll Send a confirmation of Item has shipped, if you would like to check the status of order(s) please press the link below
+            Thank you for shopping with us. We will Send a confirmation of Email that Item has shipped.
           </p>
           <button role={'li'} onClick={()=>{router.push('/orders')}} className='button text-lg'>Go to my Orders</button>
         </div>
@@ -27,4 +27,4 @@ function success() {
   )
 }
 
-export default success
+export default Success

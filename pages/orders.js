@@ -15,11 +15,11 @@ export default function Orders({orders}){
         Your Orders
       </h1>
       {
-        session ? (
+        session.data ? (
           <h2>{orders && orders.length} orders</h2>
         ):
         (
-          <h2>Please Sign in to see your Orders</h2>
+          <h2 className='font-bold text-yellow-900'>Please Sign in to see your Orders</h2>
         )
 
       }

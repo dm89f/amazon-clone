@@ -3,8 +3,8 @@ This Project is a Frontend clone of amazon using NextJS, tailwindcss, next-auth,
 
 ## Features
 - Populating Products from fake store API to simulate the product list in home page
-- sign in options using Google, Facebook
-- Add to Cart feature using redux
+- sign in options using Google.
+- Add to Cart feature using redux-toolkit
 - simulated purchase orders using stripe payment gateway
 - finally view the orders made.
 
@@ -22,4 +22,4 @@ pnpm dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Demo URL
-Open [https://amazon-clone-bc.vercel.app/](https://amazon-clone-bc.vercel.app/)
+Open [https://amazon-clone-olive-xi.vercel.app/)
